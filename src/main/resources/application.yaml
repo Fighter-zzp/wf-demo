@@ -1,0 +1,8 @@
+spring:
+  data:
+    mongodb:
+      database: myDb
+      host: '127.0.0.1'
+      username: 'zzp'
+      password: '123456'
+      port: 27017
