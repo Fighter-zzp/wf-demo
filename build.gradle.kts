@@ -29,9 +29,10 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
+/*    implementation("org.projectlombok:lombok:1.18.18")
     compileOnly("org.projectlombok:lombok")
-    annotationProcessor("org.projectlombok:lombok")
-
+    annotationProcessor("org.projectlombok:lombok")*/
+    implementation(group="org.springframework.boot", name="spring-boot-starter-aop")
     "testImplementation"("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
