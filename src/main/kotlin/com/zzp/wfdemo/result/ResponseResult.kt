@@ -1,5 +1,7 @@
 package com.zzp.wfdemo.result
 
+import com.fasterxml.jackson.databind.ObjectMapper
+
 /**
  * 响应结果对象
  */
@@ -32,5 +34,10 @@ class ResponseResult {
                 this.success = false
             }
         }
+    }
+
+    override fun toString(): String {
+        val om = ObjectMapper()
+        return om.writeValueAsString(this)
     }
 }

@@ -1,11 +1,11 @@
 package com.zzp.wfdemo.controller
-
 import com.zzp.wfdemo.data.User
 import com.zzp.wfdemo.service.UserService
 import org.springframework.web.bind.annotation.*
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 import javax.annotation.Resource
+
 
 /**
  * controller
@@ -18,7 +18,14 @@ class UserController {
     private lateinit var userService: UserService
 
     @GetMapping("/")
-    fun allUser(): Flux<User> = userService.findAll()
+    fun allUser(): Flux<User> {
+        return userService.findAll()
+    }
+
+    @GetMapping("/d/")
+    fun allUserd(): Flux<User> {
+        return userService.findAll()
+    }
 
     @GetMapping("/{id}")
     fun getUser(@PathVariable id: Long?): Mono<User?>? = when (id) {
@@ -27,9 +34,8 @@ class UserController {
     }
 
     @GetMapping("/{userName}/{note}")
-    fun queryUser(@PathVariable note: String?, @PathVariable userName: String?): Flux<User> {
-        return userService.findUsers(userName ?: "", note ?: "")
-    }
+    fun queryUser(@PathVariable note: String?, @PathVariable userName: String?)
+            = userService.findUsers(userName ?: "", note ?: "")
 
     @PostMapping("/")
     fun saveUser(@RequestBody user: User?): Mono<User?>? = when (user) {
